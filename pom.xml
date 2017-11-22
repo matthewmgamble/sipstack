@@ -56,7 +56,6 @@
 
   <modules>
     <module>sipstack-netty-codec-sip</module>
-    <module>sipstack-example</module>
   </modules>
 
   <dependencyManagement>
@@ -193,5 +192,4 @@
 
     </plugins>
   </build>
-
 </project>

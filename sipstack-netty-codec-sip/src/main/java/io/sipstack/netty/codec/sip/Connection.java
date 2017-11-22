@@ -4,6 +4,7 @@
 package io.sipstack.netty.codec.sip;
 
 import io.netty.channel.Channel;
+import io.netty.channel.socket.DatagramPacket;
 import io.pkts.packet.sip.SipMessage;
 
 import java.net.InetSocketAddress;
@@ -117,6 +118,8 @@ public interface Connection {
      */
     void send(SipMessage msg);
 
+    void sendRawPacket(SipMessage msg, InetSocketAddress remote);
+    
     public boolean connect();
 
 }

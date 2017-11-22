@@ -77,7 +77,8 @@ public abstract class AbstractConnection implements Connection {
     public int getRemotePort() {
         return this.remote.getPort();
     }
-
+    
+    
     @Override
     public boolean isUDP() {
         return false;

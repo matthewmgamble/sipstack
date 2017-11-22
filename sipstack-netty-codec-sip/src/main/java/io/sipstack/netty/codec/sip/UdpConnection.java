@@ -17,6 +17,8 @@ public final class UdpConnection extends AbstractConnection {
     // {
     // super(ctx, remoteAddress);
     // }
+    
+   
 
     public UdpConnection(final Channel channel, final InetSocketAddress remoteAddress) {
         super(channel, remoteAddress);
@@ -32,11 +34,21 @@ public final class UdpConnection extends AbstractConnection {
 
     /**
      * {@inheritDoc}
+     * @param msg
      */
     @Override
     public void send(final SipMessage msg) {
         final DatagramPacket pkt = new DatagramPacket(toByteBuf(msg), getRemoteAddress());
         channel().writeAndFlush(pkt);
+      //  channel().
+    }
+    
+    
+    @Override
+    public void sendRawPacket(final SipMessage msg, InetSocketAddress remote) {
+        final DatagramPacket pkt = new DatagramPacket(toByteBuf(msg), remote);
+        channel().writeAndFlush(pkt);
+       
     }
 
     @Override
